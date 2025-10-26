@@ -1,68 +1,51 @@
-import React, { useState } from 'react';
-import './App.css'; // You can copy your old CSS into here
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import './index.css'; // Your global styles
+
+// Import all the new page components
+import SplashScreen from './pages/SplashScreen';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import MainPage from './pages/MainPage';
+import BrandPage from './pages/BrandPage';
+import BookingPage from './pages/BookingPage';
+import BookingSuccessPage from './pages/BookingSuccessPage';
+import RecoverIdPage from './pages/RecoverIdPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
+import AdminLoginPage from './pages/AdminLoginPage';
+import AdminDashboardPage from './pages/AdminDashboardPage';
 
 function App() {
-  const [id, setId] = useState('');
-  const [pw, setPw] = useState('');
-  const [message, setMessage] = useState('');
-
-  const handleLogin = async (e) => {
-    e.preventDefault(); // Stop the form from reloading the page
-    setMessage('Logging in...');
-
-    try {
-      // This is the "fetch" call to your new backend API
-      const response = await fetch('http://localhost:8080/api/users/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ id, pw }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        // Handle errors from the server (e.g., "Wrong Password")
-        throw new Error(data.message || 'Something went wrong');
-      }
-
-      // Success!
-      setMessage(data.message);
-      // Here you would save the user token and redirect to the main page
-
-    } catch (err) {
-      setMessage(err.message); // Show the error (e.g., "User ID Not Registered")
-    }
-  };
-
-  // This is JSX, which looks like HTML
-  // You can adapt your form from user_login.php
   return (
-    <div className="body bg1"> {/* You can re-use your old CSS classes */}
-      <form className="form" onSubmit={handleLogin}>
-        <input
-          className="tb"
-          type="text"
-          placeholder="USERNAME"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
-          required
-        />
-        <br /><br /><br />
-        <input
-          className="tb pw"
-          type="password"
-          placeholder="PASSWORD"
-          value={pw}
-          onChange={(e) => setPw(e.target.value)}
-          required
-        />
-        <br /><br /><br />
-        <button className="btn lbtn" type="submit">Login</button>
-      </form>
-      {message && <h2 className="unable">{message}</h2>} {/* Display login status */}
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          {/* Splash screen from index.php */}
+          <Route path="/" element={<SplashScreen />} /> 
+          
+          {/* Auth Pages */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
+          <Route path="/recover-id" element={<RecoverIdPage />} />
+
+          {/* Main App Pages */}
+          <Route path="/main" element={<MainPage />} />
+          <Route path="/brand/:brandName" element={<BrandPage />} />
+          <Route path="/book/:carName" element={<BookingPage />} />
+          <Route path="/booking-success" element={<BookingSuccessPage />} />
+
+          {/* Admin Pages */}
+          <Route path="/admin" element={<AdminLoginPage />} />
+          <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
+
+          {/* Default redirect to splash */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

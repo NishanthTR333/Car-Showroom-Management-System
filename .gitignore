@@ -10,6 +10,7 @@ backend/.env
 
 # Windows
 Thumbs.db
+.DS_Store
 
 #frontend
 frontend/node_modules/
