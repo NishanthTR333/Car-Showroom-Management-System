@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// You can import your old CSS here if you want
-// import '../stylehome.css'; 
+// We don't need to import CSS here anymore since it's linked in index.html
 
 function HomePage() {
-  // This logic is from your main.php
   const brands = [
     { name: 'Audi', logo: '/images/logo/audi.png', path: 'audi' },
     { name: 'BMW', logo: '/images/logo/bmw.png', path: 'bmw' },
@@ -16,26 +14,35 @@ function HomePage() {
     { name: 'Ferrari', logo: '/images/logo/ferrari.png', path: 'ferrari' },
   ];
 
+  // --- ADD className="bgshowroom" ---
   return (
-    <div>
-      {/* You can add your navbar and image slider here later */}
+    <div className="bgshowroom"> 
+      {/* --- TODO: Add Navbar Component Here --- */}
+      {/* <Navbar /> */}
       
-      <div className="brandsel"> {/* Reusing your class from main.php */}
+      {/* Placeholder for the top section (image slider, welcome text) */}
+      <div style={{ paddingTop: '80px', minHeight: '400px', color: 'white', textAlign: 'center' }}>
+         {/* You can re-add your image slider component here */}
+         <h1>Welcome to NFS Motors</h1> 
+      </div>
+
+      <div className="brandsel"> 
         <h1 style={{ fontFamily: 'Copperplate' }}>Explore Luxury Cars by Brands</h1>
         
         {brands.map((brand) => (
           <Link key={brand.path} to={`/cars/${brand.path}`}>
-            {/* This Link component creates a link to "/cars/audi", "/cars/bmw", etc.
-              It navigates to your new BrandPage component.
-            */}
             <button className="brandselbtn">
-              <img src={brand.logo} alt={brand.name} style={{ width: '80%' }} />
+              {/* Ensure logo paths start with / */}
+              <img src={brand.logo} alt={brand.name} style={{ width: '80%' }} /> 
               <h2 style={{ fontFamily: 'Didot' }}>{brand.name}</h2>
             </button>
           </Link>
         ))}
-        
       </div>
+      
+      {/* --- TODO: Add Insurance/Warranty and Footer sections later --- */}
+      {/* <div className="insur">...</div> */}
+      {/* <footer className="foot">...</footer> */}
     </div>
   );
 }

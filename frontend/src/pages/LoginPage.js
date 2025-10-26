@@ -9,55 +9,60 @@ function LoginPage() {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault(); // Stop the form from refreshing the page
-    setError(''); // Clear any previous errors
+    e.preventDefault(); 
+    setError(''); 
 
     try {
-      // Send the login request to the backend API you built
       const res = await axios.post('/api/auth/login', { id, pass });
-
-      // If login is successful, 'res.data' will have the token
       localStorage.setItem('token', res.data.token);
-      
-      // We'll redirect to a 'home' page (which we'll create later)
-      navigate('/home');
+      navigate('/home'); 
 
     } catch (err) {
-      // If the server sent an error (like "Wrong Password")
-      setError(err.response.data.error);
+      setError(err.response?.data?.error || 'Login failed'); // Added better error handling
     }
   };
 
+  // --- ADD className="body bg1" ---
   return (
-    <div>
-      {/* You can copy/paste your old HTML/CSS structure here */}
-      <form onSubmit={handleLogin}>
-        <h1>User Login</h1>
+    <div className="body bg1"> 
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> 
+      {/* --- ADD className="form" --- */}
+      <form className="form" onSubmit={handleLogin}> 
+        {/* --- ADD className="tb" --- */}
         <input
+          className="tb" 
           type="text"
           placeholder="USERNAME"
           value={id}
           onChange={(e) => setId(e.target.value)}
           required
         />
-        <br />
+        <br /><br /><br />
+        {/* --- ADD className="tb" --- */}
         <input
+          className="tb" 
           type="password"
           placeholder="PASSWORD"
           value={pass}
           onChange={(e) => setPass(e.target.value)}
           required
         />
-        <br />
-        <button type="submit">Login</button>
-        <br />
-        {/* Display any error messages */}
-        {error && <h2 style={{ color: 'red' }}>{error}</h2>}
+        <br /><br /><br />
+        {/* --- ADD className="btn lbtn" --- */}
+        <button className="btn lbtn" type="submit">Login</button>
+        <br /><br /><br />
         
-        <p>
-          Don't have an account? <Link to="/register">Register here</Link>
-        </p>
+        {/* --- ADD className="btn btnfull" --- */}
+        <Link to="/register">
+          <button className="btn btnfull" type="button">
+            I Dont Have an Account
+          </button>
+        </Link>
       </form>
+      <br/><br/>
+
+      {/* --- ADD className="unable blinkerror" --- */}
+      {error && <h2 className="unable blinkerror">{error}</h2>} 
     </div>
   );
 }

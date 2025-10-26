@@ -1,0 +1,477 @@
+/* --- Base Styles & Body --- */
+body {
+  background-color: black;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #888888; /* Default text color */
+}
+
+/* Base class for dark backgrounds with image */
+.bg1 {
+  background-image: url("images/bg1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh; /* Ensure background covers full height */
+}
+
+/* Specific background for the main showroom page */
+.bgshowroom {
+  background-image: url("images/homepage/showroom.jpeg");
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+/* Background for payment/booking pages */
+.bgpay {
+  background-color: rgba(0, 0, 0, 0.942);
+  min-height: 100vh;
+}
+
+
+/* --- Animations --- */
+@keyframes blink {
+  0%, 33% { opacity: 0; }
+  33%, 66% { opacity: 1; }
+  66%, 99% { opacity: 0; }
+}
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(5px); }
+}
+@keyframes zoom {
+  100% { transform: scale(1.5); }
+}
+@keyframes rotate {
+  100% { transform: rotate(10deg); }
+}
+@keyframes carZoomHover {
+  100% { transform: scale(1.05); }
+}
+
+.blinkimg { animation: blink 1.5s ease-in-out; opacity: 0; }
+.blinkerror { animation: blink 5s ease-in-out infinite; opacity: 0; } /* Made infinite */
+.shakelogo { animation: shake 0.1s ease-in-out infinite; }
+.zoomlogo { animation: zoom 5s ease-in-out; }
+.rotatelogo { animation: rotate 5s ease-in-out; }
+
+
+/* --- Navigation --- */
+.navbar {
+  padding: 1rem 2%; /* Use rem for better scaling */
+  background-color: rgba(0, 0, 0, 0.7); /* Slightly darker */
+  position: fixed;
+  display: flex;
+  width: 96%; /* Adjust width to account for padding */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure navbar is on top */
+  box-sizing: border-box;
+}
+
+.navlink {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-right: 2rem; /* Spacing */
+  transition: color 0.3s ease;
+}
+
+.navlink:hover {
+  color: #fc6460;
+}
+
+
+/* --- Forms (Login, Register, Admin) --- */
+.form {
+  text-align: center;
+  padding: 2rem 0; /* Add some padding */
+}
+
+/* Combined Input Styles */
+.tb, .stb, .tb1 {
+  height: 35px;
+  border: 2px solid #ffffff; /* Reduced border width */
+  border-radius: 10px;
+  color: #ffffff; /* White text for better contrast */
+  background-color: rgba(0, 0, 0, 0.4); /* Darker semi-transparent */
+  padding: 0.5rem 1rem; /* Padding */
+  font-size: 1rem;
+  font-family: inherit; /* Use body font */
+  box-sizing: border-box; /* Include padding/border in width */
+  margin-bottom: 1.5rem; /* Spacing */
+}
+
+.tb { width: 30%; min-width: 250px; } /* Min width for smaller screens */
+.stb { width: 50%; min-width: 250px; }
+.tb1 { width: 60%; min-width: 200px; } /* For file input/select */
+
+/* Style placeholder text */
+input::placeholder {
+  color: #bbb;
+  opacity: 1; /* Firefox */
+}
+input:-ms-input-placeholder { color: #bbb; } /* IE 10-11 */
+input::-ms-input-placeholder { color: #bbb; } /* Edge */
+
+/* Button Styles */
+.btn, .sbtn, .bbtn {
+  height: 45px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  color: #ffffff; /* White text */
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 1.1rem; /* Slightly larger */
+  padding: 0 1.5rem; /* Horizontal padding */
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+.btn:hover, .sbtn:hover, .bbtn:hover {
+  color: black;
+  background-color: #ffffff;
+  font-weight: bold;
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.lbtn { width: auto; padding: 0 1rem; } /* Login button size */
+.bbtn { border-color: blue; } /* Specific blue button */
+.bbtn:hover { background-color: blue; border-color: blue; color: black; }
+.btnfull { width: 32%; min-width: 260px; }
+
+/* Image Button (Phone/Mail recovery) */
+.btnfimg {
+  width: 100%;
+  border: 2px solid #c80000;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btnfimg:hover { background-color: rgba(0, 0, 0, 0.7); }
+.btnimg { height: 50px; margin-right: 1rem; } /* Smaller recovery icons */
+
+/* Admin Form Box */
+.formbox {
+  margin: 5rem auto; /* Center horizontally with margin */
+  border-radius: 10px;
+  border: 3px solid #da0f0ffd;
+  width: 40%;
+  max-width: 600px; /* Max width */
+  min-width: 300px; /* Min width */
+  padding: 2rem;
+  background: rgba(7, 7, 7, 0.7);
+  box-sizing: border-box;
+}
+.formbox h1 {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  margin-top: 0;
+}
+.formbox .tb { width: 90%; margin-left: 5%; }
+.formbox .tb1 { width: 70%; margin-left: 5%; }
+.formbox .btn { display: block; margin: 1.5rem auto 0; padding: 0.8rem 2.5rem; }
+
+
+/* --- Layout Helpers --- */
+.inline { display: inline-block; vertical-align: top; }
+.split { width: 49%; }
+.center { text-align: center; }
+.ldbtn { margin-left: 25%; width: 20%; } /* Adjusted recovery buttons */
+.rdbtn { margin-left: 5%; width: 20%; }
+
+/* --- Text & Messages --- */
+.white { color: #ccc; }
+.red { color: #c80000; }
+.redtxt { color: #c80000; text-align: center; }
+.redhead { width: 80%; height: 3px; background-color: #888; border: none; margin: 1rem auto; }
+.redlink { color: #aaa; font-size: 1rem; text-decoration: none; margin-left: 1rem; }
+.redlink:hover { color: #770000; }
+
+.unable, .success {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid #555;
+  color: #c80000;
+  border-radius: 5px;
+  padding: 0.8rem;
+  margin: 1rem auto;
+  width: fit-content; /* Size to content */
+  max-width: 80%;
+}
+.success { color: #00f; } /* Blue for success */
+
+
+/* --- Homepage Specific --- */
+.gallery-container {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px; /* Limit width */
+  margin: 0 auto; /* Center */
+}
+.image-gallery { display: flex; transition: transform 2s ease; }
+.image-gallery img { width: 100%; display: block; }
+.colour { /* This was overlaying the slider */
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  padding-top: calc(4rem + 4%); /* Add space below navbar */
+}
+
+/* Brand Selection Section */
+.brandsel {
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #fff;
+}
+.brandsel h1 { font-family: Copperplate, serif; margin-top: 0; }
+.brandselbtn {
+  background-color: transparent;
+  border: 1px solid transparent; /* Subtle border */
+  color: #fff;
+  border-radius: 8px; /* More rounded */
+  width: 15%;
+  min-width: 150px; /* Ensure buttons don't get too small */
+  text-align: center;
+  padding: 1rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  vertical-align: top;
+}
+.brandselbtn:hover {
+  background-color: #000;
+  border-color: #555;
+}
+.brandselbtn img {
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+.brandselbtn h2 { font-family: Didot, serif; margin: 0; font-size: 1.1rem; }
+
+/* Insurance Section */
+.insur { background-color: #fff; padding: 4rem 1rem; color: #333; }
+.insur > div { width: 48%; display: inline-block; text-align: center; vertical-align: top; margin: 0 1%; }
+.insur h1 { font-family: 'Times New Roman', Times, serif; }
+.insur img { max-width: 40%; height: auto; }
+.insur h4 { font-family: 'Times New Roman', Times, serif; font-weight: lighter; color: #555; }
+.insursel {
+  background-color: rgb(238, 8, 8);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  width: auto; /* Adjust width */
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.insursel:hover { background-color: rgb(200, 8, 8); }
+.insursel h2 { font-family: 'Times New Roman', Times, serif; margin: 0; font-size: 1.2rem; }
+
+/* Footer */
+.foot {
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #fff;
+}
+.alog { /* Admin Login Button */
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  width: auto;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.alog:hover { background-color: white; color: black; }
+
+
+/* --- Brand Page --- */
+.pagebg {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  margin: 1rem 0.5%;
+  padding: 1rem;
+  overflow: hidden; /* Clear floats/inline-blocks */
+  color: #333;
+}
+.pagebg > div { /* Style the inline-block divs */
+  vertical-align: middle;
+  padding: 0 1rem;
+}
+.pagebg > div:first-child { /* Text content */
+  width: 40%;
+  float: left;
+}
+.pagebg > div:last-child { /* Image content */
+  width: 50%;
+  float: right;
+  text-align: right;
+}
+.pagebg h1 { font-family: 'Times New Roman', Times, serif; margin-top: 0; }
+.pagebg h3 { font-family: 'Times New Roman', Times, serif; margin-bottom: 0.5rem; }
+.pagebg h3:nth-of-type(1) { color: rgb(70, 68, 68); } /* Fuel type */
+.pagebg h3:nth-of-type(2) { font-weight: lighter; } /* Price */
+.expand {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Ensure it behaves well */
+  margin-left: auto; /* Align image right */
+  transition: transform 0.3s ease;
+}
+.expand:hover {
+  transform: scale(1.05); /* Replace long animation with hover effect */
+}
+
+
+/* --- Booking Page --- */
+.carbgl { /* Car image container */
+  display: block; /* Change to block for responsiveness */
+  width: 90%;
+  max-width: 600px;
+  margin: 1rem auto;
+  background-color: rgba(255, 255, 255, 0.085);
+  border-radius: 15px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.carbgl img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.carbgr { /* Car details container */
+  display: block;
+  width: 90%;
+  max-width: 600px;
+  margin: 1rem auto;
+  background-color: rgba(229, 96, 29, 0.977);
+  color: white;
+  border-radius: 15px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.carbgr h1, .carbgr h3 {
+  margin: 0.5rem 0;
+}
+
+.paymentbg { /* Transaction ID form container */
+  margin: 2rem 10%;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid rgba(229, 96, 29, 0.977);
+  padding: 1.5rem;
+  color: #333;
+}
+.paymentbg h1 { text-align: center; margin-top: 0; }
+.paymentbg form { text-align: center; }
+.inputbox { /* Specific input for Transaction ID */
+  display: block;
+  width: 80%;
+  margin: 0.5rem auto 1rem;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.btnpay { /* Book Now Button */
+  background: linear-gradient(135deg, #ff7700 0%, #ffd104 100%);
+  padding: 1rem; /* Larger padding */
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  width: auto; /* Auto width */
+  min-width: 150px;
+  letter-spacing: .11rem;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btnpay:hover {
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 3px 3px 6px rgba(56, 55, 55, 0.52);
+}
+
+/* Booking Success Page Specific */
+.transbg {
+  /* Inherits from .bgpay */
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+.transbg h1 { font-family: Copperplate, serif; }
+.transbg a { color: white; font-size: 1.2rem; text-decoration: underline; }
+.transbg a:hover { color: #ccc; }
+
+
+/* --- Utility & Misc --- */
+.imgcontainer { text-align: center; } /* For logo */
+.img { width: 30%; } /* Initial logo size */
+.eyes { width: 100%; display: block; } /* Brand transition image */
+
+/* Media Queries for Responsiveness (Example) */
+@media (max-width: 768px) {
+  .tb, .stb, .tb1, .btnfull {
+    width: 80%; /* Make inputs wider on smaller screens */
+  }
+  .formbox {
+    width: 80%;
+  }
+  .brandselbtn {
+    width: 40%; /* Two buttons per row */
+  }
+  .insur > div {
+    width: 90%; /* Stack insurance sections */
+    margin: 1rem auto;
+  }
+  .pagebg > div:first-child,
+  .pagebg > div:last-child {
+    width: 100%; /* Stack text and image */
+    float: none;
+    text-align: center;
+  }
+  .pagebg > div:last-child img {
+     margin: 1rem auto 0; /* Center image */
+  }
+  .carbgl, .carbgr {
+     width: 95%;
+  }
+  .ldbtn, .rdbtn {
+    width: 40%;
+    margin: 1rem auto;
+    display: block; /* Stack recovery buttons */
+  }
+  .navbar {
+    padding: 0.8rem 2%;
+  }
+  .navlink {
+    margin-right: 1rem;
+    font-size: 0.9rem;
+  }
+}

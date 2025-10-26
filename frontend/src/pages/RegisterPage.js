@@ -24,7 +24,6 @@ function RegisterPage() {
     setError('');
 
     try {
-      // Send the register request to the backend API
       await axios.post('/api/auth/register', {
         id,
         name,
@@ -32,35 +31,48 @@ function RegisterPage() {
         phoneno,
         mail
       });
-
-      // If successful, redirect to the login page
       navigate('/login');
 
     } catch (err) {
-      setError(err.response.data.error);
+      setError(err.response?.data?.error || 'Registration failed'); // Better error handling
     }
   };
 
+  // --- ADD className="body bg1" ---
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <h1>Register User</h1>
-        <input type="text" placeholder="Username" name="id" value={id} onChange={onChange} required />
-        <br />
-        <input type="text" placeholder="Full Name" name="name" value={name} onChange={onChange} required />
-        <br />
-        <input type="password" placeholder="Password" name="pass" value={pass} onChange={onChange} required />
-        <br />
-        <input type="text" placeholder="Phone Number" name="phoneno" value={phoneno} onChange={onChange} required />
-        <br />
-        <input type="email" placeholder="Email" name="mail" value={mail} onChange={onChange} required />
-        <br />
-        <button type="submit">Register</button>
+    <div className="body bg1"> 
+      <br />
+      <hr className="redhead" />
+      <h1 className="redtxt">Register User</h1>
+      <hr className="redhead" />
+      {/* --- ADD className="form" --- */}
+      <form className="form" onSubmit={handleSubmit}> 
+        <br /><br /><br />
+        {/* --- ADD className="tb" --- */}
+        <input className="tb" type="text" placeholder="Username" name="id" value={id} onChange={onChange} required />
+        <br /><br /><br />
+        {/* --- ADD className="tb" --- */}
+        <input className="tb" type="text" placeholder="Full Name" name="name" value={name} onChange={onChange} required />
+        <br /><br /><br />
+        {/* --- ADD className="tb" --- */}
+        <input className="tb" type="password" placeholder="Password" name="pass" value={pass} onChange={onChange} required />
+        <br /><br /><br />
+        {/* --- ADD className="tb" --- */}
+        <input className="tb" type="text" placeholder="Phone Number" name="phoneno" value={phoneno} onChange={onChange} required />
+        <br /><br /><br />
+        {/* --- ADD className="tb" --- */}
+        <input className="tb" type="email" placeholder="Email" name="mail" value={mail} onChange={onChange} required />
+        <br /><br /><br />
+        {/* --- ADD className="btn" --- */}
+        <button className="btn" type="submit">Register</button>
+        <br/><br/>
         
-        {error && <h2 style={{ color: 'red' }}>{error}</h2>}
+        {/* --- ADD className="unable blinkerror" --- */}
+        {error && <h2 className="unable blinkerror">{error}</h2>}
 
-        <p>
-          Already have an account? <Link to="/login">Login here</Link>
+        <p style={{textAlign: 'center', marginTop: '1rem'}}> {/* Added inline style for centering */}
+          {/* --- ADD className="redlink" --- */}
+          Already have an account? <Link className="redlink" to="/login">Login here</Link>
         </p>
       </form>
     </div>
