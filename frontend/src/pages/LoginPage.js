@@ -20,8 +20,7 @@ function LoginPage() {
       localStorage.setItem('token', res.data.token);
       
       // We'll redirect to a 'home' page (which we'll create later)
-      // navigate('/home'); 
-      alert('Login Successful! (Redirect to /home pending)');
+      navigate('/home');
 
     } catch (err) {
       // If the server sent an error (like "Wrong Password")
