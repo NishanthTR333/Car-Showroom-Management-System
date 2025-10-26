@@ -10,3 +10,8 @@ backend/.env
 
 # Windows
 Thumbs.db
+
+#frontend
+frontend/node_modules/
+frontend/build/
+frontend/.env
