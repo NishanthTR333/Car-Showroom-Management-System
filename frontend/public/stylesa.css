@@ -1,0 +1,254 @@
+@keyframes blink {
+    0%,
+    33% {
+      opacity: 0;
+    }
+    33%,
+    66% {
+      opacity: 1;
+    }
+    66%,
+    99% {
+      opacity: 0;
+    }
+  }
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+    100% {
+      transform: translateX(5px);
+    }
+  }
+  @keyframes zoom {
+    100% {
+      transform: scale(1.5);
+    }
+  }
+  @keyframes rotate {
+    100% {
+      transform: rotate(10deg);
+    }
+  }
+  .tb {
+    width: 30%;
+    height: 35px;
+    border: 4px solid #ffffff;
+    border-radius: 10px;
+    color: #888888;
+    background-color: #00000000;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .stb {
+    width: 50%;
+    height: 35px;
+    border: 4px solid #ffffff;
+    border-radius: 10px;
+    color: #888888;
+    background-color: #00000000;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .btn {
+    height: 45px;
+    border: 4px solid #fff ; 
+    border-radius: 10px;
+    color: #888888;
+    background-color: #00000000;
+    font-size: larger;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .sbtn {
+    width: 20%;
+    height: 45px;
+    border: 4px solid #fff ; 
+    border-radius: 10px;
+    color: #888888;
+    background-color: #00000000;
+    font-size: larger;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .lbtn {
+    width: 8%;
+  }
+  .bbtn {
+    height: 45px;
+    border: 4px solid blue;
+    border-radius: 10px;
+    color: #888888;
+    background-color: black;
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .btnleft {
+    margin-right: 26%;
+  }
+  .btnwithfplink {
+    margin-right: 13.5%;
+  }
+  .btnwithidflink {
+    margin-right: 13%;
+  }
+  .btn:hover {
+    color: black;
+    background-color: #ffffff;
+    font-weight: bold;
+  }
+  .sbtn:hover {
+    color: black;
+    background-color: #ffffff;
+    font-weight: bold;
+  }
+  .bbtn:hover {
+    color: black;
+    background-color: blue;
+  }
+  .btnfull {
+    width: 32%;
+  }
+  .btnfimg {
+    width: 100%;
+    border: 4px solid #c80000;
+    border-radius: 10px;
+    color: #888888;
+    background-color: #00000000;
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    display: flex;
+    text-align: center;
+  }
+  
+  .btnfimg:hover{
+    background-color: #00000099;
+  }
+  .btnimg {
+    height:100px;
+  }
+  .form {
+    text-align: center;
+  }
+  .body {
+    background-color: #000000;
+  }
+  .bg1 {
+    background-image: url("images/bg1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  .img {
+    width: 30%;
+  }
+  .imgcontainer {
+    text-align: center;
+  }
+  .eyes {
+    width: 100%;
+  }
+  .blinkimg {
+    animation: blink 1.5s ease-in-out;
+    opacity: 0;
+  }
+  .blinkerror {
+    animation: blink 5s ease-in-out;
+    opacity: 0;
+  }
+  .shakelogo {
+    animation: shake 0.1s ease-in-out infinite;
+  }
+  .zoomlogo {
+    animation: zoom 5s ease-in-out;
+  }
+  .rotatelogo {
+    animation: rotate 5s ease-in-out;
+  }
+  .unable {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #000;
+    border-color: #000;
+    border: 10px solid #000;
+    color:#c80000;
+    border-radius: 5px;
+  }
+  .success {
+    color: #00f;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #00000000;
+    border-color: #00000000;
+    border: 10px solid #00000000;
+    border-radius: 5px;
+  }
+  .redlink {
+    color: #888;
+    font-size: x-large;
+  }
+  .redlink:hover {
+    color: #770000;
+  }
+  .redhead {
+    width: 80%;
+    height: 5px;
+    background-color: #888;
+    border-color: #888;
+  }
+  .redtxt {
+    color: #c80000;
+    text-align: center;
+  }
+  .inline {
+    display: inline-block;
+  }
+  .txt {
+    color: white;
+  }
+  .split {
+    width: 49%;
+  }
+  
+  .center{
+    text-align: center;
+  }
+  .white{
+    color: #777  ;
+  }
+  .red{
+    color: #c80000;
+  }
+  
+  .ldbtn{
+    margin-left: 25%;
+  }
+  
+  .rdbtn{
+    margin-left: 5%;
+  }
+  

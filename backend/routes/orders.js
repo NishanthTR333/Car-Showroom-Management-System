@@ -23,8 +23,8 @@ router.post('/', async (req, res) => {
 
     // 3. Insert the order
     const newOrder = await db.query(
-      "INSERT INTO orders (name, pno, mail, tid, cname, success, canceled) VALUES ($1, $2, $3, $4, $5, 0, 0) RETURNING *",
-      [user.name, user.phoneno, user.mail, transactionId, carName]
+      "INSERT INTO orders (user_id, cname, tid, success, canceled) VALUES ($1, $2, $3, 0, 0) RETURNING *",
+      [userId, carName, transactionId]
     );
 
     res.status(201).json(newOrder.rows[0]);

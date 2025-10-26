@@ -26,6 +26,33 @@ router.get('/', async (req, res) => {
   }
 });
 
+
+//=========================================================
+// NEW ROUTE: Get a single car by its name
+// REPLACES: The query in 'book.php'
+//=========================================================
+router.get('/:name', async (req, res) => {
+  try {
+    const { name } = req.params; // Gets the car name from the URL
+    
+    // Use $1 for the parameterized query to prevent SQL injection
+    const queryText = "SELECT * FROM carss WHERE name = $1";
+    const { rows } = await db.query(queryText, [name]);
+
+    if (rows.length === 0) {
+      return res.status(404).json({ error: "Car not found." });
+    }
+
+    // Return the first (and only) car found
+    res.json(rows[0]);
+
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+
 //=========================================================
 // REPLACES: admin/addcar.php
 //=========================================================

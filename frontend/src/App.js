@@ -5,6 +5,11 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import HomePage from './pages/HomePage';
 import BrandPage from './pages/BrandPage';
+import BookingPage from './pages/BookingPage';  
+import BookingSuccessPage from './pages/BookingSuccessPage';
+
+
+
 
 function App() {
   return (
@@ -17,6 +22,8 @@ function App() {
         {/* These are the new routes you're adding */}
         <Route path="/home" element={<HomePage />} />
         <Route path="/cars/:brandName" element={<BrandPage />} />
+        <Route path="/book/:carName" element={<BookingPage />} />
+        <Route path="/booking-success" element={<BookingSuccessPage />} />
       </Routes>
     </div>
   );
