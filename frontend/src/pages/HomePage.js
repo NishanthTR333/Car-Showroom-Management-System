@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// We don't need to import CSS here anymore since it's linked in index.html
+import Navbar from '../components/Navbar';
 
 function HomePage() {
   const brands = [
@@ -18,7 +18,16 @@ function HomePage() {
   return (
     <div className="bgshowroom"> 
       {/* --- TODO: Add Navbar Component Here --- */}
-      {/* <Navbar /> */}
+      <div className="bgshowroom">
+      <Navbar /> {/* <-- Add Navbar here */}
+
+      <div style={{ paddingTop: '80px', minHeight: '400px', /* ... */ }}>
+        {/* ... */}
+      </div>
+      <div className="brandsel">
+        {/* ... */}
+      </div>
+    </div>
       
       {/* Placeholder for the top section (image slider, welcome text) */}
       <div style={{ paddingTop: '80px', minHeight: '400px', color: 'white', textAlign: 'center' }}>

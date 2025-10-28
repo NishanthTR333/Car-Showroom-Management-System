@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 function BookingSuccessPage() {
   // --- ENSURE className="bgpay" is present ---
@@ -7,6 +8,15 @@ function BookingSuccessPage() {
     <div className="bgpay"> 
       {/* --- TODO: Add Navbar Component Here --- */}
       {/* <Navbar /> */}
+      <div className="bgpay"> 
+        <Navbar /> {/* <-- Add Navbar here */}
+
+        <div style={{ paddingTop: '80px' }}> 
+          <div className="transbg" style={{ /* ... */ }}> 
+            {/* ... page content ... */}
+          </div>
+        </div>
+      </div>
 
       <div style={{ paddingTop: '80px' }}> {/* Padding to clear navbar */}
 

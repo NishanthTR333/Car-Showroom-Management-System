@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode'; 
+import Navbar from '../components/Navbar';
 
 function BookingPage() {
   // Use decodeURIComponent to handle names with spaces like "The BMW X3"
@@ -65,8 +66,14 @@ function BookingPage() {
   // --- ENSURE className="bgpay" is present ---
   return (
     <div className="bgpay"> 
-      {/* --- TODO: Add Navbar Component Here --- */}
-      {/* <Navbar /> */}
+      
+      <div className="bgpay"> 
+        <Navbar /> {/* <-- Add Navbar here */}
+
+        <div style={{ paddingTop: '80px' }}> 
+          {/* ... page content ... */}
+        </div>
+      </div>
 
       <div style={{ paddingTop: '80px' }}> {/* Padding to clear navbar */}
         

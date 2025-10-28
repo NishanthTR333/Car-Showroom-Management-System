@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
+import Navbar from '../components/Navbar';
 
 function BrandPage() {
   const { brandName } = useParams();
@@ -31,6 +32,14 @@ function BrandPage() {
     <div className="bgshowroom"> 
       {/* --- TODO: Add Navbar Component Here --- */}
       {/* <Navbar /> */}
+      <div className="bgshowroom"> 
+        <Navbar /> {/* <-- Add Navbar here */}
+
+        <div style={{ paddingTop: '80px' }}> 
+           {/* ... page content ... */}
+        </div>
+        <br/> 
+      </div>
       
       <div style={{ paddingTop: '80px' }}> {/* Add padding to clear fixed navbar */}
         <h1 style={{ color: 'white', textAlign: 'center' }}>{brandName.toUpperCase()} Cars</h1>
