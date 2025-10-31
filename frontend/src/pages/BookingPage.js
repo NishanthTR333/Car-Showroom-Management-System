@@ -5,7 +5,7 @@ import { jwtDecode } from 'jwt-decode';
 import Navbar from '../components/Navbar';
 
 function BookingPage() {
-  // Use decodeURIComponent to handle names with spaces like "The BMW X3"
+  
   const { carName: encodedCarName } = useParams(); 
   const carName = decodeURIComponent(encodedCarName);
   const navigate = useNavigate();
@@ -19,7 +19,6 @@ function BookingPage() {
     const fetchCar = async () => {
       try {
         setLoading(true);
-        // Ensure carName is properly encoded for the API call URL
         const res = await axios.get(`/api/cars/${encodeURIComponent(carName)}`); 
         setCar(res.data);
       } catch (err) {
@@ -55,7 +54,7 @@ function BookingPage() {
 
     } catch (err) {
       console.error("Booking failed:", err);
-      setError(err.response?.data?.error || "Booking failed. Please try again."); // Show specific backend error if available
+      setError(err.response?.data?.error || "Booking failed. Please try again.");
     }
   };
 
@@ -63,21 +62,21 @@ function BookingPage() {
   if (error && !car) return <div style={{ color: 'red', textAlign: 'center', marginTop: '5rem' }}>{error}</div>; // Show error if car failed to load
   if (!car) return <div style={{textAlign: 'center', marginTop: '5rem'}}>Car not found.</div>;
 
-  // --- ENSURE className="bgpay" is present ---
+  
   return (
     <div className="bgpay"> 
       
       <div className="bgpay"> 
-        <Navbar /> {/* <-- Add Navbar here */}
+        <Navbar />
 
         <div style={{ paddingTop: '80px' }}> 
-          {/* ... page content ... */}
+          
         </div>
       </div>
 
-      <div style={{ paddingTop: '80px' }}> {/* Padding to clear navbar */}
+      <div style={{ paddingTop: '80px' }}> 
         
-        {/* These classes should already be applied correctly */}
+        
         <div className="carbgl"> 
           <img src={car.img.replace('..', '')} alt={car.name} />
         </div>
@@ -89,7 +88,7 @@ function BookingPage() {
           </div>
         </div>
 
-        {/* These classes should also be applied correctly */}
+        
         <div className="paymentbg" style={{ marginTop: '50px', clear: 'both' }}> 
           <h1>Confirm Your Booking</h1>
           <form onSubmit={handleBooking} style={{ padding: '20px' }}>
@@ -106,7 +105,7 @@ function BookingPage() {
               Book Now
             </button>
           </form>
-          {/* Display booking error */}
+          
           {error && <p className="unable blinkerror" style={{width: 'fit-content', margin: '1rem auto'}}>{error}</p>} 
           <br /><br />
         </div>
